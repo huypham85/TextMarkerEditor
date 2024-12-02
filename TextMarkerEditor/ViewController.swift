@@ -28,12 +28,4 @@ class ViewController: UIViewController {
         
     }
     
-    func setUpConstraints() {
-        let sampleLabelConstraints = [
-            self.sampleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.sampleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
-        ]
-        NSLayoutConstraint.activate(sampleLabelConstraints)
-    }
-    
 }

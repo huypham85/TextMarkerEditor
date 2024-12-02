@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DC7A08B2CFE1E6200F66E0B /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */; };
+		2DC7A08C2CFE1E6200F66E0B /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */; };
 		6973123A2CFD65D600EEDB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697312392CFD65D600EEDB29 /* AppDelegate.swift */; };
 		6973123C2CFD65D600EEDB29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973123B2CFD65D600EEDB29 /* SceneDelegate.swift */; };
 		6973123E2CFD65D600EEDB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973123D2CFD65D600EEDB29 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
 		697312362CFD65D600EEDB29 /* TextMarkerEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextMarkerEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		697312392CFD65D600EEDB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6973123B2CFD65D600EEDB29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,8 @@
 				6973124D2CFD6D1C00EEDB29 /* NoteBoxView.swift */,
 				697312512CFD9C7800EEDB29 /* NoteView.xib */,
 				697312532CFD9C8400EEDB29 /* NoteView.swift */,
+				2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */,
+				2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */,
 			);
 			path = TextMarkerEditor;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 				697312432CFD65D900EEDB29 /* Assets.xcassets in Resources */,
 				697312572CFDC24700EEDB29 /* TestViewController.xib in Resources */,
 				697312462CFD65D900EEDB29 /* Base in Resources */,
+				2DC7A08B2CFE1E6200F66E0B /* TextInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +162,7 @@
 				697312542CFD9C8400EEDB29 /* NoteView.swift in Sources */,
 				6973123A2CFD65D600EEDB29 /* AppDelegate.swift in Sources */,
 				6973124E2CFD6D1C00EEDB29 /* NoteBoxView.swift in Sources */,
+				2DC7A08C2CFE1E6200F66E0B /* TextInputViewController.swift in Sources */,
 				697312582CFDC24700EEDB29 /* TestViewController.swift in Sources */,
 				6973123C2CFD65D600EEDB29 /* SceneDelegate.swift in Sources */,
 			);
@@ -298,6 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LFKPMBHSSG;
@@ -316,6 +325,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.huypham.TextMarkerEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LFKPMBHSSG;
@@ -334,6 +345,7 @@
 				INFOPLIST_FILE = TextMarkerEditor/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -344,6 +356,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.huypham.TextMarkerEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
