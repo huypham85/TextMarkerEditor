@@ -68,6 +68,7 @@
 		697312382CFD65D600EEDB29 /* TextMarkerEditor */ = {
 			isa = PBXGroup;
 			children = (
+				697312592CFEE5E400EEDB29 /* Note */,
 				697312562CFDC24700EEDB29 /* TestViewController.xib */,
 				697312552CFDC24700EEDB29 /* TestViewController.swift */,
 				697312392CFD65D600EEDB29 /* AppDelegate.swift */,
@@ -77,12 +78,19 @@
 				697312442CFD65D900EEDB29 /* LaunchScreen.storyboard */,
 				697312472CFD65D900EEDB29 /* Info.plist */,
 				6973124D2CFD6D1C00EEDB29 /* NoteBoxView.swift */,
+			);
+			path = TextMarkerEditor;
+			sourceTree = "<group>";
+		};
+		697312592CFEE5E400EEDB29 /* Note */ = {
+			isa = PBXGroup;
+			children = (
 				697312512CFD9C7800EEDB29 /* NoteView.xib */,
 				697312532CFD9C8400EEDB29 /* NoteView.swift */,
 				2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */,
 				2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */,
 			);
-			path = TextMarkerEditor;
+			path = Note;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
