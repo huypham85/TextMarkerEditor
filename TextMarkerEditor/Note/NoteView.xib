@@ -88,9 +88,17 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uYR-UY-8Sh" userLabel="DragView">
                             <rect key="frame" x="490" y="418" width="24" height="24"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="memo_corner" translatesAutoresizingMaskIntoConstraints="NO" id="S08-An-F09">
+                                    <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                </imageView>
+                            </subviews>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="S08-An-F09" secondAttribute="bottom" id="9RO-9Q-B7G"/>
                                 <constraint firstAttribute="height" constant="24" id="VBN-Oi-EDb"/>
+                                <constraint firstAttribute="trailing" secondItem="S08-An-F09" secondAttribute="trailing" id="Zoe-fA-4PT"/>
+                                <constraint firstItem="S08-An-F09" firstAttribute="leading" secondItem="uYR-UY-8Sh" secondAttribute="leading" id="f8v-Zj-nEQ"/>
+                                <constraint firstItem="S08-An-F09" firstAttribute="top" secondItem="uYR-UY-8Sh" secondAttribute="top" id="rVN-Pa-rM7"/>
                                 <constraint firstAttribute="width" constant="24" id="wr8-Ha-gth"/>
                             </constraints>
                         </view>
@@ -124,6 +132,7 @@
         </view>
     </objects>
     <resources>
-        <image name="note" width="640" height="584"/>
+        <image name="memo_corner" width="1" height="1"/>
+        <image name="note" width="71" height="584"/>
     </resources>
 </document>

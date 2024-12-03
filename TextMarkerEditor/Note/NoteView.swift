@@ -80,6 +80,7 @@ class NoteView: UIView {
             let newHeight = max(300, initialSize.height + deltaY)
             
             self.frame.size = CGSize(width: newWidth, height: newHeight)
+            self.originalFrame.size = CGSize(width: newWidth, height: newHeight)
         }
     }
     
