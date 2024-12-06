@@ -12,7 +12,14 @@ class TestViewController: UIViewController {
 //    @IBOutlet weak var noteView: NoteView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let noteView = NoteView(frame: CGRect(x: 20, y: 30, width: 300, height: 600))
+        let noteView = NoteView(
+            memoData: MemoData(
+                frame: CGRect(x: 20, y: 30, width: 300, height: 600),
+                isMinimized: false,
+                text: "hello world",
+                color: .init(UIColor(red: 34, green: 201, blue: 144, alpha: 1))
+            )
+        )
         noteView.isUserInteractionEnabled = true
         self.view.addSubview(noteView)
 //        noteView.translatesAutoresizingMaskIntoConstraints = true

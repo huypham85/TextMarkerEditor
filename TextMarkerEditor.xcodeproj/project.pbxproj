@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		2DC7A08B2CFE1E6200F66E0B /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */; };
 		2DC7A08C2CFE1E6200F66E0B /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */; };
+		69434F012D02B3C20013FE7A /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69434EFF2D02B3C20013FE7A /* NoteView.swift */; };
+		69434F022D02B3C20013FE7A /* NoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69434F002D02B3C20013FE7A /* NoteView.xib */; };
+		69434F042D03070C0013FE7A /* MemoCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69434F032D03070C0013FE7A /* MemoCornerView.swift */; };
 		6973123A2CFD65D600EEDB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697312392CFD65D600EEDB29 /* AppDelegate.swift */; };
 		6973123C2CFD65D600EEDB29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973123B2CFD65D600EEDB29 /* SceneDelegate.swift */; };
 		6973123E2CFD65D600EEDB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973123D2CFD65D600EEDB29 /* ViewController.swift */; };
 		697312432CFD65D900EEDB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 697312422CFD65D900EEDB29 /* Assets.xcassets */; };
 		697312462CFD65D900EEDB29 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 697312452CFD65D900EEDB29 /* Base */; };
 		6973124E2CFD6D1C00EEDB29 /* NoteBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6973124D2CFD6D1C00EEDB29 /* NoteBoxView.swift */; };
-		697312522CFD9C7800EEDB29 /* NoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697312512CFD9C7800EEDB29 /* NoteView.xib */; };
-		697312542CFD9C8400EEDB29 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697312532CFD9C8400EEDB29 /* NoteView.swift */; };
 		697312572CFDC24700EEDB29 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 697312562CFDC24700EEDB29 /* TestViewController.xib */; };
 		697312582CFDC24700EEDB29 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697312552CFDC24700EEDB29 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,9 @@
 /* Begin PBXFileReference section */
 		2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
+		69434EFF2D02B3C20013FE7A /* NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		69434F002D02B3C20013FE7A /* NoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteView.xib; sourceTree = "<group>"; };
+		69434F032D03070C0013FE7A /* MemoCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCornerView.swift; sourceTree = "<group>"; };
 		697312362CFD65D600EEDB29 /* TextMarkerEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextMarkerEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		697312392CFD65D600EEDB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6973123B2CFD65D600EEDB29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,8 +36,6 @@
 		697312452CFD65D900EEDB29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		697312472CFD65D900EEDB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6973124D2CFD6D1C00EEDB29 /* NoteBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBoxView.swift; sourceTree = "<group>"; };
-		697312512CFD9C7800EEDB29 /* NoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteView.xib; sourceTree = "<group>"; };
-		697312532CFD9C8400EEDB29 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		697312552CFDC24700EEDB29 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		697312562CFDC24700EEDB29 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,10 +87,11 @@
 		697312592CFEE5E400EEDB29 /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				697312512CFD9C7800EEDB29 /* NoteView.xib */,
-				697312532CFD9C8400EEDB29 /* NoteView.swift */,
+				69434EFF2D02B3C20013FE7A /* NoteView.swift */,
+				69434F002D02B3C20013FE7A /* NoteView.xib */,
 				2DC7A0892CFE1E6200F66E0B /* TextInputViewController.swift */,
 				2DC7A08A2CFE1E6200F66E0B /* TextInputViewController.xib */,
+				69434F032D03070C0013FE7A /* MemoCornerView.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -151,7 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				697312522CFD9C7800EEDB29 /* NoteView.xib in Resources */,
+				69434F022D02B3C20013FE7A /* NoteView.xib in Resources */,
 				697312432CFD65D900EEDB29 /* Assets.xcassets in Resources */,
 				697312572CFDC24700EEDB29 /* TestViewController.xib in Resources */,
 				697312462CFD65D900EEDB29 /* Base in Resources */,
@@ -167,11 +170,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6973123E2CFD65D600EEDB29 /* ViewController.swift in Sources */,
-				697312542CFD9C8400EEDB29 /* NoteView.swift in Sources */,
+				69434F042D03070C0013FE7A /* MemoCornerView.swift in Sources */,
 				6973123A2CFD65D600EEDB29 /* AppDelegate.swift in Sources */,
 				6973124E2CFD6D1C00EEDB29 /* NoteBoxView.swift in Sources */,
 				2DC7A08C2CFE1E6200F66E0B /* TextInputViewController.swift in Sources */,
 				697312582CFDC24700EEDB29 /* TestViewController.swift in Sources */,
+				69434F012D02B3C20013FE7A /* NoteView.swift in Sources */,
 				6973123C2CFD65D600EEDB29 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
