@@ -112,7 +112,6 @@ class NoteView: UIView {
         dateCreatedLabel.isHidden = isHidden
         minimizeButton.isHidden = isHidden
         dragView.isHidden = isHidden
-        memoCornerView.isHidden = isHidden
         
         memoCornerViewHeightLC.constant = isHidden ? NoteView.minimizedMemoCornerViewHeight : NoteView.memoCornerViewHeight
         topViewHeightLC.constant = isHidden ? NoteView.minimizedTopViewHeight : NoteView.topViewHeight
