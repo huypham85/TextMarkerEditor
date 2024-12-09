@@ -11,22 +11,37 @@ class NoteView: UIView {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var dragView: MemoCornerView!
+    @IBOutlet weak var dragView: UIView!
+    @IBOutlet weak var memoCornerView: MemoCornerView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var contentTextView: UIView!
+    @IBOutlet weak var dateCreatedLabel: UILabel!
+    @IBOutlet weak var minimizeButton: UIButton!
+    @IBOutlet weak var memoCornerViewHeightLC: NSLayoutConstraint!
+    @IBOutlet weak var topViewHeightLC: NSLayoutConstraint!
     var didOpenTextBox: (() -> Void)?
     
     private var initialSize: CGSize = .zero
     private var initialTouchPoint: CGPoint = .zero
-    private var isMinimized = false
+    private var isMinimized = false {
+        didSet {
+            updateViewStatus()
+        }
+    }
     private var originalFrame: CGRect = .zero
     private var minimizedFrame: CGRect = .zero
     
     private var minimizeMoveGesture: UIPanGestureRecognizer?
     static let initWidth: CGFloat = 200
     static let initHeight: CGFloat = 300
-    static let minimizedWidth: CGFloat = 50
-    static let minimizedHeight: CGFloat = 75
+    static let minimizedWidth: CGFloat = 52
+    static let minimizedHeight: CGFloat = 52
+    
+    static let topViewHeight: CGFloat = 19
+    static let minimizedTopViewHeight: CGFloat = 5
+    
+    static let memoCornerViewHeight: CGFloat = 17
+    static let minimizedMemoCornerViewHeight: CGFloat = 7
     
     var memoData: MemoData?
     
@@ -47,18 +62,15 @@ class NoteView: UIView {
         if isMinimized {
             return
         }
+        self.isMinimized = true
         originalFrame = self.frame
-        topView.isHidden = true
-        contentLabel.isHidden = true
-        dragView.isHidden = true
         
         minimizedFrame = CGRect(x: frame.origin.x, y: frame.origin.y, width: NoteView.minimizedWidth, height: NoteView.minimizedHeight)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.frame = self.minimizedFrame
-            self.layer.cornerRadius = self.frame.height / 2
+            self.contentView.layer.cornerRadius = 5
         }) { _ in
-            self.isMinimized = true
             self.minimizeMoveGesture?.isEnabled = true
         }
     }
@@ -69,23 +81,42 @@ class NoteView: UIView {
         self.isMinimized = memoData?.isMinimized ?? false
         self.contentLabel.text = memoData?.text
         self.topView.backgroundColor = memoData?.color?.uiColor
-        self.dragView.updateFillColor(memoData?.color?.uiColor ?? UIColor.red)
-        self.contentTextView.backgroundColor = memoData?.color?.uiColor.withAlphaComponent(0.3)
+        self.memoCornerView.updateFillColor(memoData?.color?.uiColor ?? UIColor.red)
+        self.contentTextView.backgroundColor = memoData?.secondaryColor?.uiColor
         if isMinimized {
             topView.isHidden = true
             contentLabel.isHidden = true
-            dragView.isHidden = true
+            memoCornerView.isHidden = true
             self.frame = CGRect(x: memoData?.frame?.origin.x ?? 0, y: memoData?.frame?.origin.y ?? 0, width: NoteView.minimizedWidth, height: NoteView.minimizedHeight)
             self.layer.cornerRadius = self.frame.height / 2
         }
+        self.contentView.setShadow(color: UIColor.black.withAlphaComponent(0.15),
+                                   opacity: 1.0,
+                                   offSet: CGSize(width: 0, height: 1.22),
+                                   radius: 1.82,
+                                   bottomOnly: false,
+                                   viewCornerRadius: 5)
+        
     }
     
     func loadXib() {
         let viewFromXib = Bundle.init(for: NoteView.self).loadNibNamed("NoteView", owner: self, options: nil)![0] as! UIView
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
-        contentView.layer.cornerRadius = 5
-        contentView.clipsToBounds = true
+    }
+    
+    private func updateViewStatus() {
+        let isHidden = isMinimized
+        
+        contentLabel.isHidden = isHidden
+        dateCreatedLabel.isHidden = isHidden
+        minimizeButton.isHidden = isHidden
+        dragView.isHidden = isHidden
+        memoCornerView.isHidden = isHidden
+        
+        memoCornerViewHeightLC.constant = isHidden ? NoteView.minimizedMemoCornerViewHeight : NoteView.memoCornerViewHeight
+        topViewHeightLC.constant = isHidden ? NoteView.minimizedTopViewHeight : NoteView.topViewHeight
+        
     }
     
     private func addGestures() {
@@ -114,7 +145,7 @@ class NoteView: UIView {
     }
     
     @objc private func handleMove(_ gesture: UIPanGestureRecognizer) {
-
+        
         guard let parent = self.superview else { return }
         
         let translation = gesture.translation(in: parent)
@@ -126,7 +157,7 @@ class NoteView: UIView {
         } else if (newX + currentFrame.width / 2) > parent.frame.width {
             newX = parent.frame.width - currentFrame.width / 2
         }
-         
+        
         if (newY - currentFrame.height / 2) < 0 {
             newY = currentFrame.height / 2
         } else if (newY + currentFrame.height / 2) > parent.frame.height {
@@ -156,13 +187,10 @@ class NoteView: UIView {
     
     @objc private func handleTap(_ gesture: UITapGestureRecognizer) {
         if isMinimized {
-            topView.isHidden = false
-            contentLabel.isHidden = false
-            dragView.isHidden = false
+            self.isMinimized = false
             UIView.animate(withDuration: 0.5, animations: {
                 self.frame = CGRect.init(origin: self.frame.origin, size: self.originalFrame.size)
             }) { _ in
-                self.isMinimized = false
                 self.minimizeMoveGesture?.isEnabled = false
             }
         } else {
@@ -207,12 +235,14 @@ public struct MemoData: Codable {
     var isMinimized: Bool?
     var text: String?
     var color: Color?
+    var secondaryColor: Color?
     
-    public init(frame: CGRect, isMinimized: Bool, text: String, color: Color) {
+    public init(frame: CGRect, isMinimized: Bool, text: String, color: Color, secondaryColor: Color) {
         self.frame = frame
         self.isMinimized = isMinimized
         self.text = text
         self.color = color
+        self.secondaryColor = secondaryColor
     }
     
     public init(from decoder: any Decoder) throws {
@@ -240,13 +270,65 @@ public struct Color : Codable {
     private var green: CGFloat = 0.0
     private var blue: CGFloat = 0.0
     private var alpha: CGFloat = 0.0
- 
+    
     public var uiColor: UIColor {
         UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
     }
- 
+    
     public init(_ uiColor: UIColor) {
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
     }
 }
+
+extension UIView {
+    
+    func setShadow(color: UIColor,
+                   opacity: Float,
+                   offSet: CGSize,
+                   radius: CGFloat,
+                   scale: Bool = true,
+                   bottomOnly: Bool = false,
+                   viewCornerRadius: CGFloat) -> UIView {
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        layer.cornerRadius = viewCornerRadius
+        layer.masksToBounds = true
+        if bottomOnly {
+            layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        }
+        return generateOuterShadow()
+    }
+    
+    func generateOuterShadow() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = layer.cornerRadius
+        view.layer.shadowRadius = layer.shadowRadius
+        view.layer.shadowOpacity = layer.shadowOpacity
+        view.layer.shadowColor = layer.shadowColor
+        view.layer.shadowOffset = layer.shadowOffset
+        view.clipsToBounds = false
+        view.backgroundColor = .white
+        
+        superview?.insertSubview(view, belowSubview: self)
+        
+        let constraints = [
+            NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0.0),
+        ]
+        superview?.addConstraints(constraints)
+        return view
+    }
+}
+
+
+
+
 

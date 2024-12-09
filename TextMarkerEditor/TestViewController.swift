@@ -17,7 +17,8 @@ class TestViewController: UIViewController {
                 frame: CGRect(x: 20, y: 30, width: 300, height: 600),
                 isMinimized: false,
                 text: "hello world",
-                color: .init(UIColor(red: 34, green: 201, blue: 144, alpha: 1))
+                color: .init(UIColor(red: 34, green: 201, blue: 144, alpha: 1)), 
+                secondaryColor: .init(UIColor(red: 110, green: 254, blue: 205, alpha: 1))
             )
         )
         noteView.isUserInteractionEnabled = true
